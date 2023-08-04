@@ -58,7 +58,7 @@ _TIP: If you want the log window, check the "Enable Log Window" checkmark near t
 * Click the "Start/Restart Server" button, then press the "Refresh" button near the "INACTIVE" text. A message box saying "Modules needs to be installed..." will pop up. Press OK and wait until the CMD window is closed.
 * When the CMD window is closed, press again the "Start/Restart Server" button. If everything went correctly, the server should start!
 * You can make AppLink work in the background by closing this window:<br><br>
-![image](https://github.com/SelyanSel/AppLink/assets/53857450/0bf7db17-ac8d-48c3-bab0-a86a0b5e498e)<br><br>
+![image](https://github.com/SelyanSel/AppLink/assets/53857450/5d2b7d95-58c4-41bd-8412-99a8561f8a66)<br><br>
 * To reopen it, open your Icon Tray and click on the AppLink logo (this one below)<br><br>
 ![image](https://github.com/SelyanSel/AppLink/assets/53857450/44bcb81f-9fff-486e-ba9d-923722a1add7)<br><br>
 
