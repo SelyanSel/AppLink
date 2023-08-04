@@ -1,16 +1,19 @@
 {
     "apps": [
         {
+            "id":"1",
             "name":"explorer",
             "path":"explorer"
         },
         {
+            "id":"2",
             "name":"taskmgr",
             "path":"taskmgr"
         }
     ],
     "commands":[
         {
+            "id":"1",
             "name":"helloworld",
             "exec":"msg * hello world!"
         }

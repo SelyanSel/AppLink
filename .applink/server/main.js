@@ -18,6 +18,59 @@ function shutdownServer(){
     process.exit();
 }
 
+function removeApp(appid, json){
+    try {
+        var tempjson = {
+            "apps":[
+            ],
+            "commands":json['commands']
+        }
+    
+        json['apps'].forEach(obj =>{
+            if (obj.id !== appid){
+                tempjson['apps'].push(obj)
+            }
+        })
+    
+        console.log(tempjson)
+
+        fs.unlinkSync('./apps/appsRegistery.json');
+        fs.appendFile('./apps/appsRegistery.json', JSON.stringify(tempjson), function (err) {
+            if (err) throw err;
+            applications = tempjson
+            logConsole('Remote app removed: ' + appid)
+            return true;
+        });
+
+    } catch (error) {
+        return false;
+    }
+}
+
+function addApp(appid, appname, apppath, json){
+    var tempjson = json
+
+    console.log(tempjson)
+
+    var newappjson = {
+        "id":appid,
+        "name":appname,
+        "path":apppath
+    }
+
+    tempjson['apps'].push(newappjson)
+
+    console.log(tempjson)
+
+    fs.unlinkSync('./apps/appsRegistery.json');
+    fs.appendFile('./apps/appsRegistery.json', JSON.stringify(tempjson), function (err) {
+        if (err) throw err;
+        applications = tempjson
+        logConsole('Remote app added: ' + appid)
+        return true;
+    });
+}
+
 function logConsole(content){
     console.log('\x1b[34m>>> \x1b[33m[LOG] \x1b[32m' + content + ' \x1b[0m')
     return;
@@ -34,7 +87,7 @@ fs.readFile('./apps/appsRegistery.json', 'utf8', (err, data) => {
 app.get('/api/openApp', async (req,res) => {
 
     let appname = req.query.name;
-    let password = req.query.pass
+    let password = req.query.pass;
     var foundApp = false
 
     if (requirePassword === true){
@@ -179,8 +232,77 @@ app.get('/api/stopServer', async (req,res) =>{
     }
 })
 
+app.get('/ping',async(req,res)=>{
+    res.status(200).send('Pong!')
+})
+
+app.get('/api/isUsingPassword', async(req,res) =>{
+    res.status(200).send(requirePassword)
+})
+
+app.get('/api/getApps',async(req,res)=>{
+    let pass = req.query.pass
+
+    if (requirePassword) {
+        if (pass === accessPass){
+            res.status(200).send(applications['apps'])
+            logConsole('Sent apps file to user. Logged in with password.')
+        }else{
+            res.status(401).send(JSON.stringify({status:"Unauthorized."}))
+            logConsole('Remote get apps aborted: wrong password')
+        }
+    }else{
+        res.status(200).send(applications['apps'])
+        logConsole('Sent apps file to user.')
+    }
+
+})
+
+app.get('/api/removeAppFromID',async(req,res)=>{
+    
+    let pass = req.query.pass
+    let id = req.query.id
+
+    if (requirePassword) {
+        if (pass === accessPass){
+            removeApp(id,applications)
+            res.status(200).send(JSON.stringify({status:"ok"}))
+        }else{
+            res.status(401).send(JSON.stringify({status:"Unauthorized."}))
+            logConsole('Remote get apps aborted: wrong password')
+        }
+    }else{
+        removeApp(id,applications)
+        res.status(200).send(JSON.stringify({status:"ok"}))
+    }
+
+})
+
+app.get('/api/createApp',async(req,res)=>{
+    
+    let pass = req.query.pass
+    let id = req.query.id
+    let name = req.query.name
+    let path = req.query.path
+
+    if (requirePassword) {
+        if (pass === accessPass){
+            addApp(id,name,path,applications)
+            res.status(200).send(JSON.stringify({status:"ok"}))
+        }else{
+            res.status(401).send(JSON.stringify({status:"Unauthorized."}))
+            logConsole('Remote get apps aborted: wrong password')
+        }
+    }else{
+        addApp(id,name,path,applications)
+        res.status(200).send(JSON.stringify({status:"ok"}))
+    }
+
+})
+
 app.use(express.static(__dirname + "/web/"));
 
 app.listen(9989, function() {
-    console.log('\n\x1b[34m>>> AppLink Server v' + pjson.version + ' started.\x1b[0m\n')
+    console.log('\n\x1b[34m>>> AppLink Server v' + pjson.version + ' started.\x1b[0m')
+    console.log('\n\x1b[33m>>> BE CAREFUL! AppLink is supposed to be run on a local server. If you open the port 9989 on your router and forward it to this pc, you may make\nthis computer vulnerable to cyber attacks. The creator is not responsible for any damage done.\x1b[0m\n')
 });
