@@ -1,0 +1,18 @@
+{
+  "name": "applink",
+  "version": "1.0.0",
+  "description": "AppLink is a node-js and web based application that allows to setup a local server and run apps or commands with a simple GET request.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "SelyanSel",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "child_process": "^1.0.2",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "fs": "^0.0.1-security"
+  }
+}

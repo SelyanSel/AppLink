@@ -1,0 +1,18 @@
+{
+    "apps": [
+        {
+            "name":"explorer",
+            "path":"explorer"
+        },
+        {
+            "name":"taskmgr",
+            "path":"taskmgr"
+        }
+    ],
+    "commands":[
+        {
+            "name":"helloworld",
+            "exec":"msg * hello world!"
+        }
+    ]
+}
