@@ -14,7 +14,7 @@
     <a href="https://github.com/SelyanSel/AppLink/wiki"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/SelyanSel/AppLink/">View Demo</a>
+    <a href="https://github.com/SelyanSel/AppLink/releases/latest">Download</a>
     ·
     <a href="https://github.com/SelyanSel/AppLink//issues">Report Bug</a>
     ·
