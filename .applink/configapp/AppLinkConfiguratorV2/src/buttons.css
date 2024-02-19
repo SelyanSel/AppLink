@@ -1,0 +1,31 @@
+.context-red:hover {
+    background-color: rgb(241, 73, 73);
+}
+
+.context-red:active {
+    background-color: rgb(196, 51, 51);
+}
+
+.context-green:hover {
+    background-color: #2ea043;
+}
+
+.context-green:active {
+    background-color: #247e35;
+}
+
+.context-gold:hover {
+    background-color: rgb(219, 149, 28);
+}
+
+.context-gold:active {
+    background-color: rgb(165, 112, 21);
+}
+
+.context:hover {
+    background-color: #1a94e9;
+}
+
+.context:active {
+    background-color: #157cc6;
+}

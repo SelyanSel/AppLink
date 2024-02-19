@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+
+    <meta charset="UTF-8">
+    <title>AppLink</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="buttons.css">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+
+</head>
+    <body>
+
+        <div class="loader">
+            <center>
+                <a id="loader_percentage">Init in progress...</a>
+            </center>
+        </div>
+
+        <div class="navbar">
+            <a class="title">
+                AppLink
+            </a>
+        </div>
+
+        <div class="main">
+            <div class="main_content">
+                <div class="panel" id="top_panel">
+                    <a>👋 Welcome to AppLink!</a>
+                    <div style="height:3px;"></div>
+                    <div class="top_panel_btn_container">
+                        <button class="btn context" onclick="window.extapp.openRepo()">
+                            <img src="assets/github.png" style="height:12px; padding-right:2.5px;">
+                            <a style="font-size:15px;">View source on GitHub</a>
+                        </button>
+                        <button class="btn context-red" onclick="window.extapp.issueRepo()">
+                            <img src="assets/warn.png" style="height:12px; padding-right:2.5px;">
+                            <a style="font-size:15px;">Report an issue</a>
+                        </button>
+                        <button class="btn context-gold" onclick="window.extapp.starRepo()">
+                            <img src="assets/star.png" style="height:12px; padding-right:2.5px;">
+                            <a style="font-size:15px;">Star repository</a>
+                        </button>
+                    </div>
+                </div>
+                <div class="panel" id="dashboard_panel">
+                    <div style="flex-direction: row;">
+                        <a>🚀 Connection status :</a>
+                        <a id="connection_status" class="notconnected">Not Connected</a>
+                    </div>
+                    <div style="height:3px;"></div>
+                    <div class="top_panel_btn_container">
+                        <button class="btn context-green" onclick="window.extapp.openRepo()">
+                            <a style="font-size:15px;">Connect</a>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

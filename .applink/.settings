@@ -1,0 +1,6 @@
+[settings]
+; do not touch JS or wrkDirectory unless you know what you are doing.
+autoStart=true
+silentStart=true
+wrkDirectory=%d%\server\
+JS=start.bat

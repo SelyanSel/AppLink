@@ -1,0 +1,14 @@
+{
+  "name": "applinkconfiguratorv2",
+  "version": "1.0.0",
+  "description": "Version 2 (electron) of the AppLink configurator.",
+  "main": "main.js",
+  "scripts": {
+    "start":"electron ."
+  },
+  "author": "SelyanSel",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^27.1.3"
+  }
+}

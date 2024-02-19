@@ -101,6 +101,12 @@
       <DependentUpon>MainPanel.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ManageCommands.Designer.vb">
+      <DependentUpon>ManageCommands.vb</DependentUpon>
+    </Compile>
+    <Compile Include="ManageCommands.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
@@ -142,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MainPanel.resx">
       <DependentUpon>MainPanel.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageCommands.resx">
+      <DependentUpon>ManageCommands.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

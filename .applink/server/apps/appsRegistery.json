@@ -9,6 +9,11 @@
             "id":"2",
             "name":"taskmgr",
             "path":"taskmgr"
+        },
+        {
+            "id":"3",
+            "name":"explorerArgs",
+            "path":"explorer $[]"
         }
     ],
     "commands":[
@@ -16,6 +21,11 @@
             "id":"1",
             "name":"helloworld",
             "exec":"msg * hello world!"
+        },
+        {
+            "id":"2",
+            "name":"starturl",
+            "exec":"start $[]"
         }
     ]
 }
